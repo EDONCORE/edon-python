@@ -1,0 +1,62 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "edon"
+version = "0.1.0"
+description = "EDON Governance SDK — govern AI agent actions at runtime"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "EDON Core", email = "sdk@edoncore.com"}
+]
+keywords = ["ai", "agents", "governance", "safety", "langchain", "openai", "crewai", "policy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "httpx>=0.24.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+langchain = ["langchain-core>=0.1.0"]
+openai = ["openai>=1.0.0"]
+crewai = ["crewai>=0.1.0"]
+all = ["langchain-core>=0.1.0", "openai>=1.0.0", "crewai>=0.1.0"]
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "black>=23.0", "ruff>=0.1.0", "mypy>=1.0", "respx>=0.20"]
+
+[project.scripts]
+edon = "edon.cli:main"
+
+[project.urls]
+Homepage = "https://edoncore.com"
+Documentation = "https://docs.edoncore.com"
+Repository = "https://github.com/edoncore/edon-python"
+"Bug Tracker" = "https://github.com/edoncore/edon-python/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["edon"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
