@@ -12,7 +12,7 @@ license = {text = "MIT"}
 authors = [
     {name = "EDON Core", email = "sdk@edoncore.com"}
 ]
-keywords = ["ai", "agents", "governance", "safety", "langchain", "openai", "crewai", "policy"]
+keywords = ["ai", "agents", "governance", "safety", "langchain", "openai", "crewai", "nvidia", "policy"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -34,7 +34,8 @@ dependencies = [
 langchain = ["langchain-core>=0.1.0"]
 openai = ["openai>=1.0.0"]
 crewai = ["crewai>=0.1.0"]
-all = ["langchain-core>=0.1.0", "openai>=1.0.0", "crewai>=0.1.0"]
+nvidia = ["nvidia-nat>=1.0.0"]
+all = ["langchain-core>=0.1.0", "openai>=1.0.0", "crewai>=0.1.0", "nvidia-nat>=1.0.0"]
 dev = ["pytest>=7.0", "pytest-asyncio>=0.21", "black>=23.0", "ruff>=0.1.0", "mypy>=1.0", "respx>=0.20"]
 
 [project.scripts]
